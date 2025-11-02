@@ -26,7 +26,8 @@ class Job extends Model
         "company_name",
         "company_description",
         "company_logo",
-        "company_website"
+        "company_website",
+        'user_id'
     ];
 
     // relation to user
