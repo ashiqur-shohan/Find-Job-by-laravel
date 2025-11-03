@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('city');
             $table->string('state');
-            $table->string('zicode')->nullable();
+            $table->string('zipcode')->nullable();
             $table->string('contact_email');
             $table->string('contact_phone')->nullable();
             $table->string('company_name');
@@ -47,7 +47,7 @@ return new class extends Migration
                 'address',
                 'city',
                 'state',
-                'zicode',
+                'zipcode',
                 'contact_email',
                 'contact_phone',
                 'company_name',
