@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 
 class Job extends Model
 {
+    use HasFactory;
     protected $table = 'job_listings';
     protected $fillable = [
         'title',
@@ -20,7 +22,7 @@ class Job extends Model
         "address",
         "city",
         "state",
-        "zicode",
+        "zipcode",
         "contact_email",
         "contact_phone",
         "company_name",
