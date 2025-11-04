@@ -31,12 +31,31 @@ class JobController extends Controller
     {
         $validateData = $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string'
+            'description' => 'required|string',
+            'salary' => 'required|integer',
+            'tags' => 'nullable|string',
+            'job_type' => 'required|string',
+            'remote' => 'required|boolean',
+            'requirements' => 'nullable|string',
+            'benefits' => 'nullable|string',
+            'address' => 'nullable|string',
+            'city' => 'required|string',
+            'state' => 'required|string',
+            'zipcode' => 'nullable|string',
+            'contact_email' => 'required|string',
+            'contact_phone' => 'nullable|string',
+            'company_name' => 'required|string',
+            'company_description' => 'nullable|string',
+            'contact_logo' => 'nullable|image|mimes:jpeq,jpg,png,gif|max:2048',
+            'contact_website' => 'nullable|url',
+
         ]);
 
-        Job::create(['title' => $validateData['title'], 'description' => $validateData['description']]);
+        //hardcoded user id 
+        $validateData['user_id'] = 1;
+        Job::create($validateData);
 
-        return redirect()->route('jobs.index');
+        return redirect()->route('jobs.index')->with('success','Job Listing created successfully');
     }
 
     /**

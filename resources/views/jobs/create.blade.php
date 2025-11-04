@@ -46,7 +46,7 @@
             <x-inputs.text-area id="company_description" name="company_description" label="Company Description"
                 placeholder="Company Description" />
 
-            <x-inputs.text id="company_website" name="company_website" label="Company Website"
+            <x-inputs.text id="company_website" name="company_website" type="url" label="Company Website"
                 placeholder="Company Website" />
 
             <x-inputs.text id="contact_phone" name="contact_phone" label="Contact Phone" placeholder="Contact Phone" />
