@@ -75,7 +75,7 @@ CREATE TABLE `job_listings` (
   `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `city` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `state` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `zicode` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `zipcode` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `contact_email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `contact_phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `company_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
