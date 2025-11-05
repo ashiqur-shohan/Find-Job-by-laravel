@@ -9,7 +9,7 @@
                         Back To Listings
                     </a>
                     <div class="flex space-x-3 ml-4">
-                        <a href="/edit" class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded">Edit</a>
+                        <a href="{{ route('jobs.edit',$job->id) }}" class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded">Edit</a>
                         <!-- Delete Form -->
                         <form method="POST">
                             <button type="submit" class="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded">
@@ -87,7 +87,7 @@
                 Company Info
             </h3>
             @if ($job->company_logo)
-                <img src="/images/{{ $job->company_logo }}" alt="Ad" class="w-full rounded-lg mb-4 m-auto" />
+                <img src="/storage/{{ $job->company_logo }}" alt="Ad" class="w-full rounded-lg mb-4 m-auto" />
             @endif
             <h4 class="text-lg font-bold"> {{ $job->company_name }} </h4>
             @if ($job->company_description)

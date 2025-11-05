@@ -1,16 +1,17 @@
 <x-layout>
-
+    <x-slot name="title">Edit Job Listing</x-slot>
     <div class="bg-white mx-auto p-8 rounded-lg shadow-md w-full md:max-w-3xl">
         <h2 class="text-4xl text-center font-bold mb-4">
-            Create Job Listing
+            Edit Job Listing
         </h2>
-        <form method="POST" action="{{ route('jobs.store') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('jobs.update', $job->id) }}" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <h2 class="text-2xl font-bold mb-6 text-center text-gray-500">
                 Job Info
             </h2>
 
-            <x-inputs.text id="title" name="title" label="Job Title" placeholder="Software Engineer" />
+            <x-inputs.text id="title" name="title" label="Job Title" placeholder="Software Engineer" :value="old('title',$job->title)" />
 
             <x-inputs.text-area id="descripion" name="description" label="Description"
                 placeholder="We are seeking a skilled and motivated Software Developer to join our growing development team..." />

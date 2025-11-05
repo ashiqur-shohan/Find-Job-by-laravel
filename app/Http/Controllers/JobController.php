@@ -53,6 +53,17 @@ class JobController extends Controller
 
         //hardcoded user id 
         $validateData['user_id'] = 1;
+
+        //check for image
+        if($request->hasFile('company_logo')){
+            // Store the file and get path
+            $path = $request->file('company_logo')->store('logos','public');
+
+            //Add path to validated data
+            $validateData['company_logo'] = $path;
+        }
+
+        // Submit to database
         Job::create($validateData);
 
         return redirect()->route('jobs.index')->with('success','Job Listing created successfully');
@@ -69,9 +80,9 @@ class JobController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Job $job)
     {
-        //
+        return view('jobs.edit')->with('job',$job);
     }
 
     /**
