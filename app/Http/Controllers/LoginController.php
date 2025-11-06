@@ -34,4 +34,19 @@ class LoginController extends Controller
             'email'=> 'The provided credentials do not match out records'
         ])->onlyInput('email');
     }
+
+    // @desc Logout User
+    // @route POST /logout
+    public function logout(Request $request ){
+        Auth::logout();
+        // destroys all session data associated with the current session ID.
+        $request->session()->invalidate();
+
+        //Extra layer of security
+        // Creates a new CSRF token -> Old tokens in forms become invalid
+        // Prevents CSRF & form reuse after logout
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
 }
