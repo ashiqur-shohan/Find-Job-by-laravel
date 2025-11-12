@@ -5,12 +5,13 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/',[HomeController::class, 'index'] )->name('home');
 
 // create and add auth middleware to these routes
 Route::resource('jobs', JobController::class)->middleware('auth')->only(['create','edit','update','destroy']);
-// create routes and everyone can see these routes
+// everyone can see these routes
 Route::resource('jobs', JobController::class)->except(['create','edit','update','destroy']);
 
 //Group wise guest middleware applied
@@ -22,3 +23,5 @@ Route::middleware('guest')->group(function(){
 });
 
 Route::post('/logout',[LoginController::class,'logout'] )->name('logout');
+
+Route::get('/dashboard',[DashboardController::class,'index'] )->name('dashboard');
