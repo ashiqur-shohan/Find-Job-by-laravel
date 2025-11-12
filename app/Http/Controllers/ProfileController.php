@@ -30,7 +30,7 @@ class ProfileController extends Controller
         if($request->hasFile('avatar')){
             //Delete old avatar if exits
             if($user->avatar){
-                Storage::delete('public/'. $user->avatar);
+                Storage::disk('public')->delete($user->avatar);
             }
 
             //Store new avatar
